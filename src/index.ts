@@ -11,8 +11,11 @@ const main = async () => {
     jwt: process.env.RINGCENTRAL_JWT_TOKEN!,
   });
 
-  const r = await rc.post('/restapi/v1.0/account/~/telephony/conference', {});
-  console.log(r.data);
+  // const r = await rc.post('/restapi/v1.0/account/~/telephony/conference', {});
+  // console.log(r.data);
+
+  const r = await rc.restapi().account().telephony().conference().post();
+  console.log(r);
   await rc.revoke();
 };
 main();
